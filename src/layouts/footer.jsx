@@ -1,5 +1,6 @@
 import { Footer } from 'flowbite-react';
 import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 export const Footerr = () => {
   return (
@@ -50,7 +51,7 @@ export const Footerr = () => {
             <Footer.Title className='text-black' title="NEWSLETTER" />
             <Footer.LinkGroup col>
               <input className=' outline-none border-r-transparent border-l-transparent border-t-transparent border-b-2 border-[#0000008c] focus:border-[#f43c3c8c] focus:border-transparent bg-transparent' type="email" placeholder='Email Adress' />
-              <Footer.Link href="#">SUBSCRIBE</Footer.Link>
+              <Link className='bg-slate-900 hover:bg-red-600 text-white h-12 w-36 rounded-full flex justify-center items-center'>SUBSCRIBE</Link>
             </Footer.LinkGroup>
           </div>
         </div>
