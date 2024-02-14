@@ -34,9 +34,9 @@ export const Header = () => {
                     <Link className="text-lg font-normal opacity-80 cursor-pointer text-red-600" to={"/"} active>
                         Home
                     </Link>
-                    <Link className="text-lg font-normal opacity-80 cursor-pointer hover:text-red-600" to={"/"}>Shop</Link>
-                    <Link className="text-lg font-normal opacity-80 cursor-pointer hover:text-red-600" to={""}>About</Link>
-                    <Link className="text-lg font-normal opacity-80 cursor-pointer hover:text-red-600" to={""}>Contact</Link>
+                    <Link className="text-lg font-normal opacity-80 cursor-pointer hover:text-red-600" to={"/shop"}>Shop</Link>
+                    <Link className="text-lg font-normal opacity-80 cursor-pointer hover:text-red-600" to={"/about"}>About</Link>
+                    <Link className="text-lg font-normal opacity-80 cursor-pointer hover:text-red-600" to={"/contact"}>Contact</Link>
                 </Navbar.Collapse>
             </Navbar>
 
