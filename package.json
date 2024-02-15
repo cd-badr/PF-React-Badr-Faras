@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "@coreui/coreui": "^4.3.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
+    "@mui/material": "^5.15.10",
     "@syncfusion/ej2-react-grids": "^24.2.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
