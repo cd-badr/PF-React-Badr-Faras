@@ -1,10 +1,10 @@
 import './firstSection.scss'
-import { Carousel } from 'flowbite-react';
-import { Link } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import React from 'react';
+import { Carousel, Tabs } from 'flowbite-react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { MyContext } from '../../../utils/contextProvider';
+
+
 
 
 
@@ -18,7 +18,24 @@ export const FirstSection = () => {
 
     // tabs
 
+    const [test, setTest, products, setProducts] = useContext(MyContext)
+    const [activeTab, setActiveTab] = useState('New');
     
+
+    console.log(products);
+
+    const filteredProducts = products.filter((product, index) => {
+        if (activeTab === 'New') {
+            return product.condition === 'new';
+        } else if (activeTab === 'Old') {
+            return product.condition === 'old';
+        } else if (activeTab === 'Sale') {
+            return product.condition === 'sale';
+        }
+        return true;
+    }).slice(0, 4);;
+
+
 
     return (
         <>
@@ -82,12 +99,12 @@ export const FirstSection = () => {
                 <h1 className='text-4xl text-center font-bold opacity-80 '>FEATURED PRODUCTS</h1>
 
                 <div className=" flex justify-center gap-3">
-                    <Link onClick={()=> ""} className='bg-slate-900 hover:bg-red-600 text-white h-12 w-36 rounded-sm flex justify-center items-center'>New</Link>
-                    <Link onClick={()=> ""} className='bg-slate-900 hover:bg-red-600 text-white h-12 w-36 rounded-sm flex justify-center items-center'>Old</Link>
-                    <Link onClick={()=> ""} className='bg-slate-900 hover:bg-red-600 text-white h-12 w-36 rounded-sm flex justify-center items-center'>Sale</Link>
+                    <Link onClick={() => ""} className='bg-slate-900 hover:bg-red-600 text-white h-12 w-36 rounded-sm flex justify-center items-center'>New</Link>
+                    <Link onClick={() => ""} className='bg-slate-900 hover:bg-red-600 text-white h-12 w-36 rounded-sm flex justify-center items-center'>Old</Link>
+                    <Link onClick={() => ""} className='bg-slate-900 hover:bg-red-600 text-white h-12 w-36 rounded-sm flex justify-center items-center'>Sale</Link>
                 </div>
 
-            {/* tabs */}
+                {/* tabs */}
 
                 <div className="">
 
@@ -112,7 +129,31 @@ export const FirstSection = () => {
 
             </div>
 
-        {/* sec-4 */}
+
+
+            <div className='w-[100% ] flex flex-col justify-center items-center'>
+                <div className=' flex justify-center w-[30%] items-center font-bold text-4xl gap-10 mt-7 border-gray-700 border-2'>
+                    <button onClick={() => setActiveTab('New')}>New</button>
+                    <button onClick={() => setActiveTab('Old')}>Old</button>
+                    <button onClick={() => setActiveTab('Sale')}>Sale</button>
+                </div>
+                <div className='w-[100%] p-24 flex gap-5 justify-center items-center '>
+                    {filteredProducts.map(product => (
+                        <div className='w-[20%]' key={product.name}>
+                            <div className=' overflow-hidden'>
+                                <img className=' hover:scale-110 relative transition delay-75' src={product.image} alt={product.name} />
+                            </div>
+                            <h3>{product.name}</h3>
+                            <p>Price: ${product.price}</p>
+                            <p>Condition: {product.condition}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+
+
+            {/* sec-4 */}
 
             <div className=" bg-[#f0f0f0] flex justify-center gap-7 p-10">
                 <div className=" sec-4-bg w-[550px] h-[400px] bg-center bg-cover text-white flex flex-col justify-center items-center gap-3">
@@ -145,9 +186,9 @@ export const FirstSection = () => {
                 </div>
             </div>
 
-        {/* sec-5 */}
+            {/* sec-5 */}
 
-        <div className="flex flex-col gap-10 p-10">
+            <div className="flex flex-col gap-10 p-10">
                 <h1 className='text-4xl text-center font-bold opacity-80 '>OUR BLOG</h1>
 
                 <div className="">
@@ -161,7 +202,7 @@ export const FirstSection = () => {
 
                             <p className='opacity-50 w-[400px]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed turpis sed lorem dignissim vulputate nec cursus ante. Nunc sit...</p>
                         </div>
-                        
+
                         <div className="flex flex-col gap-3">
                             <div className="sec-5-2 w-[400px] h-[300px] bg-center bg-cover"></div>
                             <h1>Black Friday Guide: Best Sales & Discount Codes</h1>
@@ -184,17 +225,17 @@ export const FirstSection = () => {
 
             </div>
 
-        {/* sec-6 */}
+            {/* sec-6 */}
 
-        <div className="flex flex-col gap-10 p-10">
+            <div className="flex flex-col gap-10 p-10">
                 <h1 className='text-4xl text-center font-bold opacity-80 '>@ FOLLOW US ON INSTAGRAM</h1>
 
-            {/* tabs */}
+                {/* tabs */}
 
                 <div className="pt-10">
 
                     <div className="flex flex-row  justify-center">
-                        
+
                         <div className=" w-full flex flex-col justify-center items-center p-5">
                             <p className='opacity-80 text-xl'>Free Delivery Worldwide</p>
                             <p className='opacity-50 text-xl'>Mirum est notare quam littera gothica</p>
@@ -209,13 +250,13 @@ export const FirstSection = () => {
                             <p className='opacity-80 text-xl'>Free Delivery Worldwide</p>
                             <p className='opacity-50 text-xl'>Mirum est notare quam littera gothica</p>
                         </div>
-                        
+
 
                     </div>
                 </div>
 
             </div>
-            
+
 
         </>
     );
