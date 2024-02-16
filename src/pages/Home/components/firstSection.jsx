@@ -95,7 +95,7 @@ export const FirstSection = () => {
             </div>
 
             {/* sec-3 */}
-            <div className="flex flex-col gap-10 p-10">
+            {/* <div className="flex flex-col gap-10 p-10">
                 <h1 className='text-4xl text-center font-bold opacity-80 '>FEATURED PRODUCTS</h1>
 
                 <div className=" flex justify-center gap-3">
@@ -106,7 +106,7 @@ export const FirstSection = () => {
 
                 {/* tabs */}
 
-                <div className="">
+                {/* <div className="">
 
                     <div className="flex flex-row gap-10 justify-center">
                         <div className="flex flex-col">
@@ -127,7 +127,7 @@ export const FirstSection = () => {
                     </div>
                 </div>
 
-            </div>
+            </div>  */}
 
 
 
