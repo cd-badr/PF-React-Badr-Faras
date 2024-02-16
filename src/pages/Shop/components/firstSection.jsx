@@ -1,8 +1,12 @@
-import React, { useContext } from 'react';
+import React, { createContext, useContext } from 'react';
+import { Navigate, useFetcher, useNavigate, useParams } from 'react-router-dom';
 import { MyContext } from '../../../utils/contextProvider';
 
 export const FirstSectionshop = () => {
     const [test, setTest, products, setProducts] = useContext(MyContext)
+    const {name} = useParams()
+    const productFiter = products.filter((products) => products.name == name)
+    const navigate = useNavigate()
     return (
         <>
             <div className="bg-contact flex justify-center items-center">
@@ -43,7 +47,7 @@ export const FirstSectionshop = () => {
                                     <div className=' overflow-hidden'>
                                         <img className=' hover:scale-110 relative transition delay-75' src={element.image} alt={element.name} />
                                     </div>
-                                    <h3>{element.name}</h3>
+                                    <h3 onClick={() => navigate(`/products/${element.name}`)} className='hover:text-red-600 cursor-pointer'>{element.name}</h3>
                                     <p>Price: ${element.price}</p>
                                     <p>Condition: {element.condition}</p>
                                 </div>
